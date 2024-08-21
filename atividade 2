@@ -1,0 +1,104 @@
+//Faça um programa que mostre uma tela com as seguintes opções:
+//• 1 – Calcular Média,
+//• 2 – Calcular Somatório,
+//• 3 – Achar Maior Nota,
+//• 4 – Achar Menor Nota,
+//• 0 – Finalizar o programa.
+//Cada uma das opções chamará um procedimento com a devida funcionalidade. Para fins de
+//cálculo, estes testes se basearão em um vetor chamado notas de 10 posições que deve ser
+//preenchido pelo usuário.
+#include <stdio.h>
+
+float media(float vet[], int tamanho);
+float somatorio(float vet[], int tamanho);
+float maior(float vet[], int tamanho);
+float menor(float vet[], int tamanho);
+
+
+float media(float vet[], int tamanho) {
+    float soma = 0;
+    for (int i = 0; i < tamanho; i++) {
+        soma += vet[i];
+    }
+    return soma / tamanho;
+}
+
+float somatorio(float vet[], int tamanho) {
+    float soma = 0;
+    for (int i = 0; i < tamanho; i++) {
+        soma += vet[i];
+    }
+    return soma;
+}
+
+float maior(float vet[], int tamanho) {
+    float maior = vet[0];
+    for (int i = 1; i < tamanho; i++) {
+        if (vet[i] > maior) {
+            maior = vet[i];
+        }
+    }
+    return maior;
+}
+
+float menor(float vet[], int tamanho) {
+    float menor = vet[0];
+    for (int i = 1; i < tamanho; i++) {
+        if (vet[i] < menor) {
+            menor = vet[i];
+        }
+    }
+    return menor;
+}
+
+int main() {
+    int opcao;
+    float vet[10];
+
+    printf("Digite 10 notas:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("Nota %d: ", i + 1);
+        if (scanf("%f", &vet[i]) != 1) {
+            printf("Entrada invalida. Por favor, insira um numero.\n");
+            return 1; 
+        }
+    }
+
+    do {
+        printf("\nEscolha uma das opcoes:\n");
+        printf("1 - Calcular Media\n");
+        printf("2 - Calcular Somatorio\n");
+        printf("3 - Achar Maior Nota\n");
+        printf("4 - Achar Menor Nota\n");
+        printf("0 - Finalizar o programa\n");
+
+        printf("Digite o numero da opcao desejada: ");
+        if (scanf("%d", &opcao) != 1) {
+            printf("Entrada invalida. Por favor, insira um numero inteiro.\n");
+            return 1; 
+        }
+
+        switch (opcao) {
+            case 1:
+                printf("Media das notas: %.2f\n", media(vet, 10));
+                break;
+            case 2:
+                printf("Somatorio das notas: %.2f\n", somatorio(vet, 10));
+                break;
+            case 3:
+                printf("Maior nota: %.2f\n", maior(vet, 10));
+                break;
+            case 4:
+                printf("Menor nota: %.2f\n", menor(vet, 10));
+                break;
+            case 0:
+                printf("Finalizando o programa.\n");
+                break;
+            default:
+                printf("Opcao invalida. Por favor, escolha uma opcao valida.\n");
+        }
+
+    } while (opcao != 0);
+
+    return 0;
+}
