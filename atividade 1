@@ -1,0 +1,53 @@
+//1. Faça um programa que mostre o resultado do cálculo das áreas do triângulo, quadrado e círculo.
+//O programa deve apresentar um menu onde o usuário possa escolher o tipo de área que deseja
+//calcular. Desenvolva uma sub-rotina (procedimento ou função) para cada opção.
+#include <stdio.h>
+void triangulo(){
+    float a, b, soma;
+    printf ("\n Informe o a base: ");
+    scanf ("%f", &a);
+    printf ("\n Informe a altura: ");
+    scanf ("%f", &b);
+    soma = (a * b) / 2;
+    printf ("\n A área do triangulo é: %2.f", soma);
+
+}
+void quadrado(){
+    float l, menos;
+    printf ("\n Informe o tamanho do L: ");
+    scanf ("%f", &l);
+    menos = l + l + l + l;
+    printf ("\n A área do quadrado é : %2.f", menos);
+
+}
+void circulo(){
+    float r, pi=3.14, vezes;
+    printf ("\n Informe o raio: ");
+    scanf ("%f", &r);
+    vezes = pi * (r * r);
+    printf ("\n A área do circulo é: %.2f", vezes);
+
+}
+
+int main (void){
+    int op=-1;
+    while (op){
+        printf (" \n Calculo a área: \n1)Triangulo \n2)Quadrado \n3)Circulo \n0)Sair \n>");
+        scanf ("%d", &op);
+        switch (op){
+            case 1:
+            triangulo();
+            break;
+            case 2:
+            quadrado();
+            break;
+            case 3:
+            circulo();
+            break;
+            default:
+            printf ("\n ERRO \n");
+            break;
+        }
+
+    }
+}
