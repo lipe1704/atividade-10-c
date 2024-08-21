@@ -1,0 +1,138 @@
+//6. Faça um programa que mostre uma tela com as seguintes opções:
+//• 1 – Dobro,
+//• 2 – Triplo,
+//• 3 – Metade,
+//• 4 – Quadrado,
+//• 5 – Cubo,
+//• 6 – Raiz Quadrada,
+//• 7 – Raiz Cúbica,
+//• 8 – Módulo,
+//• 9 – Inverso e
+//• 0 – Sair do Programa.
+//Cada uma das opções chamará um procedimento com a devida funcionalidade. Para fins de
+//cálculo, estes testes se basearão em um número inteiro N informado pelo usuário.
+#include <stdio.h>
+#include <math.h>
+void dobro(){
+    float a, dobro;
+    printf ("\n Informe o primeiro número: ");
+    scanf ("%f", &a);
+    dobro = a * 2;
+    printf ("\n O dobro é: %.2f", dobro);
+
+}
+void triplo(){
+    float a, triplo;
+    printf ("\n Informe o primeiro número: ");
+    scanf ("%f", &a);
+    triplo = a * 3;
+    printf ("\n O triplo %.2f", triplo);
+
+}
+void metade(){
+    float a, metade;
+    printf ("\n Informe o primeiro número: ");
+    scanf ("%f", &a);
+    metade = a / 2;
+    printf ("\n A metade é: %.2f", metade);
+
+}
+void quadrado (){
+    float a, quadrado;
+    printf ("\n Informe o primeiro número: ");
+    scanf ("%f", &a);
+    quadrado = a * a;
+    printf ("\n O resultado ao quadrado é: %.2f", quadrado);
+
+}
+void cubo (){
+    float a, cubo;
+    printf ("\n Informe o primeiro número: ");
+    scanf ("%f", &a);
+    cubo = a * a * a;
+    printf ("\n O resultado ao cubo é: %.2f", cubo);
+
+}void raizq (){
+    double num, resultado;
+
+    printf("Digite um número para calcular a raiz quadrada: ");
+    scanf("%lf", &num);
+
+    resultado = sqrt(num);
+
+
+    printf("A raiz quadrada de %.2f é:  %.2f\n", num, resultado);
+
+}
+void raizc (){
+    double num, resultado;
+
+    printf("Digite um número para calcular a raiz quadrada: ");
+    scanf("%lf", &num);
+
+    resultado = cbrt(num);
+
+
+    printf("A raiz cubica de %.2f é %.2f\n", num, resultado);
+
+}
+void modulo (){
+    int a, b, modulo;
+    printf ("\n Informe o primeiro número: ");
+    scanf ("%d", &a);
+    printf ("\n Informe o segundo numero: ");
+    scanf ("%d", &b);
+    modulo = a % b;
+    printf ("\n O modulo de %d é: %d", a, modulo);
+
+}
+void inverso (){
+    float a, resultado;
+    printf ("\n Informe o número: ");
+    scanf ("%f", &a);
+    resultado   = a - 1;
+    printf ("\n O inverso de %.2f é: %.2f", a, resultado);
+
+}
+
+
+int main (void){
+    int op=-1;
+    while (op){
+        printf (" \n Qual conta você teria interesse: \n1)Dobro \n2)Triplo \n3)Metade \n4)Quadrado \n5)Cubo \n6)Raiz Quadrada \n7)Raiz Cubica \n8)Módulo \n9)Inverso \n0)Sair \n>");
+        scanf ("%d", &op);
+        switch (op){
+            case 1:
+            dobro();
+            break;
+            case 2:
+            triplo();
+            break;
+            case 3:
+            metade();
+            break;
+            case 4:
+            quadrado();
+            break;
+            case 5:
+            cubo ();
+            break;
+            case 6:
+            raizq();
+            break;
+            case 7:
+            raizc();
+            break;
+            case 8:
+            modulo();
+            break;
+            case 9:
+            inverso();
+            break;
+            default:
+            printf ("\n ERRO \n");
+            break;
+        }
+
+    }
+}
